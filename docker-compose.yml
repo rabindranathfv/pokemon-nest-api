@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  db:
+    image: mongo:5
+    container_name: mongo_db_nest_pokemon
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_DATABASE=nest-pokedemon
+    volumes:
+      - ./mongo:/data/configdb
+      - ./mongo:/data/db
