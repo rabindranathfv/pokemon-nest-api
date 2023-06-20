@@ -1,7 +1,26 @@
-version: '3.0'
+version: '3.9'
 
 services:
-  db:
+  pokedexapi:
+    depends_on:
+      - mongo_db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pokedex-docker
+    container_name: pokedexapi
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      MONGODB: ${MONGO_URL}
+      PORT: ${PORT}
+      DEFAULT_LIMIT: ${DEFAULT_LIMIT}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  mongo_db:
     image: mongo:5
     container_name: mongo_db_nest_pokemon
     ports:
@@ -9,5 +28,8 @@ services:
     environment:
       - MONGODB_DATABASE=nest-pokedemon
     volumes:
-      - ./mongo:/data/configdb
-      - ./mongo:/data/db
+      - mongopokedex:/data/configdb
+      - mongopokedex:/data/db
+
+volumes:
+  mongopokedex: {}

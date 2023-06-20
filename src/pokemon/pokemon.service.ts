@@ -22,6 +22,10 @@ export class PokemonService {
     private readonly configService: ConfigService,
   ) {
     this.defaultLimiter = this.configService.get<number>('DEFAULT_LIMIT');
+    console.log(
+      '🚀 ~ file: pokemon.service.ts:25 ~ PokemonService ~ defaultLimiter:',
+      this.defaultLimiter,
+    );
   }
 
   async create(createPokemonDto: CreatePokemonDto): Promise<Pokemon> {
