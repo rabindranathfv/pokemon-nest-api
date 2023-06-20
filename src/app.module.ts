@@ -4,6 +4,7 @@ import { join } from 'path';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 
 const DB_HOST = 'localhost';
 const DB_PORT = 27017;
@@ -19,6 +20,7 @@ const MONGO_URL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
     MongooseModule.forRoot(MONGO_URL),
     PokemonModule,
     CommonModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [],

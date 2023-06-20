@@ -42,7 +42,7 @@ $ docker compose up
 # development (in another terminal)
 $ npm run start
 
-# watch mode
+# watch mode (in another terminal)
 $ npm run start:dev
 
 # production mode
