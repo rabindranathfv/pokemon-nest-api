@@ -17,5 +17,6 @@ import { CommonModule } from 'src/common/common.module';
   ],
   controllers: [PokemonController],
   providers: [PokemonService],
+  exports: [MongooseModule],
 })
 export class PokemonModule {}
