@@ -39,6 +39,8 @@ $ npm install
 # runing db contianer (one terminal for this)
 $ docker compose up
 
+# remenber clone sample.env, create a .env file at the same lvl of src folder
+
 # development (in another terminal)
 $ npm run start
 
