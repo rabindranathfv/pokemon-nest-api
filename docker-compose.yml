@@ -6,12 +6,12 @@ services:
       - mongo_db
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: development/Dockerfile
     image: pokedex-docker
     container_name: pokedexapi
     restart: always # reiniciar el contenedor si se detiene
     ports:
-      - "${PORT}:${PORT}"
+      - '${PORT}:${PORT}'
     environment:
       MONGODB: ${MONGO_URL}
       PORT: ${PORT}

@@ -8,7 +8,7 @@ export const validationSchema = Joi.object({
   DB_HOST: Joi.string(),
   DB_PORT: Joi.string(),
   DB_NAME: Joi.string(),
-  MONGO_URL: Joi.string(),
+  MONGO_URL: Joi.string().required(),
   // TTL_CACHE: Joi.string().required(),
   // MAX_CACHE_STORAGE: Joi.string().required(),
   // REDIS_HOST: Joi.string().required(),

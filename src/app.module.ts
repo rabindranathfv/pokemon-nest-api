@@ -24,7 +24,15 @@ import { validationSchema } from './config/env-schema.config';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
         /* istanbul ignore next */
+        const node_env = configService.get('NODE_ENV');
+        const dbHost = configService.get('DB_HOST');
         const mongoConfig = configService.get('MONGO_URL');
+        console.log(
+          '🚀 ~ file: app.module.ts:28 ~ mongoConfig:',
+          node_env,
+          dbHost,
+          mongoConfig,
+        );
         /* istanbul ignore next */
         return { uri: mongoConfig };
       },

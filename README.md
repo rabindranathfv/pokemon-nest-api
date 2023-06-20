@@ -32,26 +32,52 @@
 $ npm install
 ```
 
-## Running the app
+## Running the app on Development mode
 
 ```bash
-
-# runing db contianer (one terminal for this)
-$ docker compose up
-
 # remenber clone sample.env, create a .env file at the same lvl of src folder
 
-# development (in another terminal)
-$ npm run start
-
-# watch mode (in another terminal)
-$ npm run start:dev
+# runing db contianer (one terminal for this)
+$ docker compose --env-file .env up --build
 
 # use seeder endpoint only in development mode
-http://localhost/api/v2/seed
+http://localhost:<port>/api/v2/seed
 
-# production mode
-$ npm run start:prod
+# runing db contianer (one terminal for this)
+$ docker compose --env-file .env down
+
+```
+
+## Running the app on Development mode
+
+```bash
+# remenber clone sample.env, create a .env file at the same lvl of src folder
+
+# runing db contianer (one terminal for this)
+$ docker compose --env-file .env up --build
+
+# use seeder endpoint only in development mode
+http://localhost:<port>/api/v2/seed
+
+# runing db contianer (one terminal for this)
+$ docker compose --env-file .env down
+
+```
+
+## Running the app on Production mode
+
+```bash
+# remenber clone sample.env, create a .env.prod file at the same lvl of src folder
+
+# runing db contianer (one terminal for this)
+$ docker compose -f docker-compose.prod.yml --env-file .env.prod up --build --remove-orphans
+
+# use seeder endpoint only in development mode
+http://localhost:<port>/api/v2/seed
+
+# runing db contianer (one terminal for this)
+$ docker compose -f docker-compose.prod.yml --env-file .env.prod down
+
 ```
 
 ## Test

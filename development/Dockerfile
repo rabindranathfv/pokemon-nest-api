@@ -22,7 +22,9 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install --prod
+RUN ls -alt
+
+RUN npm install
 
 COPY --from=builder /app/dist ./dist
 
@@ -37,6 +39,4 @@ COPY --from=builder /app/dist ./dist
 # RUN chown -R pokeuser:pokeuser ./pokedex
 # USER pokeuser
 
-# EXPOSE 3000
-
-CMD [ "npm","run", "start:prod" ]
+CMD [ "npm","run", "start:dev" ]

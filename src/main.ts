@@ -17,6 +17,10 @@ async function bootstrap() {
       },
     }),
   );
-  await app.listen(configServ.get<number>('PORT'));
+  const PORT = configServ.get<number>('PORT');
+  console.log('🚀 ~ file: main.ts:21 ~ bootstrap ~ PORT:', PORT);
+  const NODE_ENV = configServ.get<string>('NODE_ENV');
+  console.log('🚀 ~ file: main.ts:23 ~ bootstrap ~ NODE_ENV:', NODE_ENV);
+  await app.listen(PORT);
 }
 bootstrap();
