@@ -45,6 +45,9 @@ $ npm run start
 # watch mode (in another terminal)
 $ npm run start:dev
 
+# use seeder endpoint only in development mode
+http://localhost/api/v2/seed
+
 # production mode
 $ npm run start:prod
 ```
